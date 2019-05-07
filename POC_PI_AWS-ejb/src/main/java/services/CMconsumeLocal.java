@@ -6,5 +6,8 @@ import javax.ejb.Local;
 public interface CMconsumeLocal {
 
 	void ConsumeCompanyList();
+
+	void ConsumeUserList();
+	
 	
 }

@@ -6,4 +6,5 @@ import javax.ejb.Remote;
 public interface CMConsumeRemote {
 
 	void ConsumeCompanyList();
+	void ConsumeUserList();
 }
