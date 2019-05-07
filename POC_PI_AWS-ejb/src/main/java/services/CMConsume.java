@@ -22,5 +22,21 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
     	System.out.println(result);
 	}
 
+	public void ConsumeUserList() {
+		// TODO Auto-generated method stub
+		
+
+		Client client2 = ClientBuilder.newClient();
+		WebTarget web2 = client2.target("http://localhost:2212/api/UserAPI");
+		
+        Response response2 = web2.request().get();
+    	
+    	String result2 = response2.readEntity(String.class); 
+    	
+    	System.out.println(result2);
+	}
+
+
+
 	 
 }
