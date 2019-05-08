@@ -28,7 +28,7 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
 		// TODO Auto-generated method stub
 		List<CompanyDTO> LC = new ArrayList<CompanyDTO> ();
 		Client client = ClientBuilder.newClient();
-		WebTarget web = client.target("http://localhost:2212/api/CompanyAPI");
+		WebTarget web = client.target("http://dotnet-env.brdcijzrz7.eu-west-1.elasticbeanstalk.com/api/CompanyAPI");
 		
         Response response = web.request().get();
     	
@@ -108,7 +108,7 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
 		
 		
 		Client client3 = ClientBuilder.newClient();
-		WebTarget web3 = client3.target("http://localhost:2212/api/CompanyCreate");
+		WebTarget web3 = client3.target("http://dotnet-env.brdcijzrz7.eu-west-1.elasticbeanstalk.com/api/CompanyCreate");
 		
 		WebTarget hello = web3.path("");
 		
@@ -118,7 +118,28 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
 		System.out.println(result);
 		response.close();
 	}
+	
+	@Override
+	public void CompanyUpdate(int id, CompanyDTO c) {
+		// TODO Auto-generated method stub
+		
+		
+		CompanyDTO company = new CompanyDTO();
+		company.setName(c.getName());
+		company.setLogoUrl(c.getLogoUrl());
+		
+		
+		Client client3 = ClientBuilder.newClient();
+		WebTarget web3 = client3.target("http://dotnet-env.brdcijzrz7.eu-west-1.elasticbeanstalk.com/api/CompanyUpdate/"+id);
+		
+		WebTarget hello = web3.path("");
+		
+		Response response = hello.request().put(Entity.entity(c, MediaType.APPLICATION_JSON));
+		
+		response.close();
+	}
 
+	
 
 
 
@@ -127,7 +148,7 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
 		// TODO Auto-generated method stub
 		
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:2212/api/CompanyDelete/"+id);
+		WebTarget target = client.target("http://dotnet-env.brdcijzrz7.eu-west-1.elasticbeanstalk.com/api/CompanyDelete/"+id);
 		WebTarget hello =target.path("");
 		Response response =hello.request(MediaType.APPLICATION_JSON_TYPE, MediaType.TEXT_PLAIN_TYPE).delete();
 		response.close();

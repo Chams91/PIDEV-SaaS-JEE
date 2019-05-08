@@ -11,7 +11,7 @@ import services.CMConsume;
 
 @ManagedBean
 public class CMBean {
-	
+	private int CompanyId;
 	private String nom;
 	private String Logo;
 	
@@ -57,6 +57,16 @@ public class CMBean {
 	public void setLogo(String logo) {
 		Logo = logo;
 	}
+
+	public int getCompanyId() {
+		return CompanyId;
+	}
+
+	public void setCompanyId(int companyId) {
+		CompanyId = companyId;
+	}
+	
+	
 	
 	
 	

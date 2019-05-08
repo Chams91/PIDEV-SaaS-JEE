@@ -16,4 +16,6 @@ public interface CMConsumeRemote {
 	void CompanyCreate(CompanyDTO c);
 	
 	void CompanyDelete (int id);
+	
+	void CompanyUpdate(int id ,CompanyDTO c);
 }
