@@ -6,6 +6,8 @@ public class UserDTO implements Serializable
 
 {
 
+	//chams entity
+	
 	/*
 	 * private String FirstName;
 	private String LastName;
