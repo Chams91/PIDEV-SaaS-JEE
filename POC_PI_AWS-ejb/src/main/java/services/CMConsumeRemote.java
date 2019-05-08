@@ -12,4 +12,8 @@ public interface CMConsumeRemote {
 
 	List<CompanyDTO> ConsumeCompanyList();
 	List<UserDTO> ConsumeUserList();
+	
+	void CompanyCreate(CompanyDTO c);
+	
+	void CompanyDelete (int id);
 }

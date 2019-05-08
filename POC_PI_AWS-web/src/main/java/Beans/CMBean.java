@@ -12,6 +12,9 @@ import services.CMConsume;
 @ManagedBean
 public class CMBean {
 	
+	private String nom;
+	private String Logo;
+	
 	@EJB
 	CMConsume chamsService;
 
@@ -27,4 +30,34 @@ public class CMBean {
 		users = chamsService.ConsumeUserList();
 		return users;
 	}
+	
+	
+	public String CreateCompany () {
+		chamsService.CompanyCreate(new CompanyDTO(nom, Logo));
+		return "/CompanyList?faces-redirect=true";
+	}
+	
+	public String DeleteCompany(int id) {
+		chamsService.CompanyDelete(id);
+		return "/CompanyList?faces-redirect=true";
+	}
+
+	public String getNom() {
+		return nom;
+	}
+
+	public void setNom(String nom) {
+		this.nom = nom;
+	}
+
+	public String getLogo() {
+		return Logo;
+	}
+
+	public void setLogo(String logo) {
+		Logo = logo;
+	}
+	
+	
+	
 }

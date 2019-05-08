@@ -30,6 +30,12 @@ public class CompanyDTO implements Serializable{
 	public void setLogoUrl(String logoUrl) {
 		LogoUrl = logoUrl;
 	}
+
+	public CompanyDTO(String name, String logoUrl) {
+		super();
+		Name = name;
+		LogoUrl = logoUrl;
+	}
 	
 	
 	
