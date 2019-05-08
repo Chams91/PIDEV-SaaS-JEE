@@ -1,0 +1,39 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+
+ template="Template.xhtml">
+	
+<ui:define name="title"> Gestion des Evenements :</ui:define>
+    <ui:define name="content">
+
+<h:form> 
+<h:panelGrid columns="2">
+
+<h:outputText value="start date" />
+<h:inputText value="#{eventConBean.start}" />
+
+<h:outputText value="deadline" />
+<h:inputText value="#{eventConBean.end}" />
+
+<h:outputText value="Task Name" />
+<h:inputText value="#{eventConBean.subject}" />
+
+<h:outputText value="Task Name" />
+<h:inputText value="#{eventConBean.description}" />
+
+
+
+<h:commandButton action="#{eventConBean.doAddEvent()}" value="Ajouter Evenement" />
+</h:panelGrid>
+
+ 
+
+ 
+ 
+
+	</h:form>
+	</ui:define>
+
+</ui:composition>
