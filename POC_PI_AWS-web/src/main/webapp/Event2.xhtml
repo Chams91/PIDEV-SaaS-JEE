@@ -1,0 +1,57 @@
+<html xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:p="http://primefaces.org/ui"
+template="Template.xhtml">
+ 
+<h:head>
+</h:head>
+ 
+<h:body>
+    <h:form id="jsfexample">
+        <p:panelGrid columns="2">
+            <f:facet name="header">  
+                Basic PanelGrid  
+           </f:facet>
+          
+ 
+
+ 
+ 
+
+ 
+            <h:messages />
+ 
+        </p:panelGrid>
+        <br />
+        <p:dataTable value="#{eventConBean.allEvents}" var="item" id="mydata">
+            <p:column>
+                <f:facet name="header">Subject</f:facet>
+                <h:outputText value="#{item.subject}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">Description</f:facet>
+                <h:outputText value="#{item.description}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">Date Debut</f:facet>
+                <h:outputText value="#{item.start}" />
+            </p:column>
+            <p:column>
+                <f:facet name="header">Date Fin</f:facet>
+                <h:outputText value="#{item.end}" />
+            </p:column>
+        </p:dataTable>
+        <p:panel header="Export All Data">
+            <h:commandLink>
+                <p:graphicImage value="/icons/xls.png"  />
+                <p:dataExporter type="xls" postProcessor="#{eventConBean.postProcessXLS}"
+                    target="mydata" fileName="myexcel" />
+            </h:commandLink>
+   
+        </p:panel>
+
+ 
+    </h:form>
+</h:body>
+</html>
