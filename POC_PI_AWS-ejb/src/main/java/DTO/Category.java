@@ -9,6 +9,8 @@ public class Category implements Serializable {
 	public int getCatId() {
 		return CatId;
 	}
+	
+	//Manel work
 	public Category(String catName) {
 		super();
 		CatName = catName;
