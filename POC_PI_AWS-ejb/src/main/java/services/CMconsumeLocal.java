@@ -1,11 +1,15 @@
 package services;
 
+import java.util.List;
+
 import javax.ejb.Local;
+
+import DTO.CompanyDTO;
 
 @Local
 public interface CMconsumeLocal {
 
-	void ConsumeCompanyList();
+	List<CompanyDTO> ConsumeCompanyList();
 
 	void ConsumeUserList();
 	
