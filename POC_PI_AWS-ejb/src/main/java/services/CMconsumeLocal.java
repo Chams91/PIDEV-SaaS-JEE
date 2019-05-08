@@ -19,4 +19,6 @@ public interface CMconsumeLocal {
 	
 	void CompanyDelete (int id);
 	
+	void CompanyUpdate(int id ,CompanyDTO c);
+	
 }
