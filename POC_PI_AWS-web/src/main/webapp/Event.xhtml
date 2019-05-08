@@ -1,0 +1,95 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+  xmlns:p="http://primefaces.org/ui"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+      template="Template.xhtml">
+
+<ui:define name="title"> Gestion des task :</ui:define>
+    <ui:define name="content">
+<h:form>
+<h:dataTable value="#{eventConBean.allEvents}" var="cp" id="tab">
+		
+		
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Event Id" />
+				</f:facet>
+				<h:outputText value="#{cp.eventId}" />
+			</h:column>
+                  
+                  
+                  	<h:column>
+				<f:facet name="header">
+					<h:outputText value="Subject" />
+				</f:facet>
+				<h:outputText value="#{cp.subject}" />
+			</h:column>
+                  
+                  
+                  
+					<h:column >
+				   <f:facet name="header" class="warning">
+                    <h:outputText value="description" />
+                     </f:facet>
+				     <h:outputText value="#{cp.description}" />
+				   </h:column>
+				
+					   <h:column >
+				   <f:facet name="header" class="warning">
+                    <h:outputText value="StartDate" />
+                     </f:facet>
+				     <h:outputText value="#{cp.start}" />
+				   </h:column>
+				
+					<h:column >
+				   <f:facet name="header" class="warning">
+                    <h:outputText value="end" />
+                     </f:facet>
+				     <h:outputText value="#{cp.end}" />
+				   </h:column>
+				
+				
+				
+			
+				<h:column>
+				<f:facet name="header">
+					<h:outputText value="Action" />
+				</f:facet>
+				<h:commandButton action="#{eventConBean.DeleteEvent(cp.eventId)}" value="supprimer" />
+			   <h:commandButton action="#{eventConBean.doUpEvent()}" value="Modifier" />
+				
+			
+		
+				
+			</h:column>
+
+		</h:dataTable>
+	
+				<h:panelGrid columns="2">
+			<h:outputText value="name" />
+			<h:inputText value="#{eventConBean.subject}" />
+
+			
+			<h:commandButton action="#{eventConBean.doAddEvent()}"
+				value="Ajouter Task" />
+			<h:commandButton action="#{eventConBean.doUpEvent()}"
+				value="MettreAjour" />
+		</h:panelGrid>
+		
+		  <p:panel header="Export All Data">
+            <h:commandLink>
+                <p:graphicImage value="/icons/xls.png"  />
+                <p:dataExporter type="xls" postProcessor="#{eventConBean.postProcessXLS}"
+                    target="tab" fileName="myexcel" />
+            </h:commandLink>
+   
+        </p:panel>
+       
+		
+		
+		</h:form>
+	</ui:define>
+
+</ui:composition>
