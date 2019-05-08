@@ -11,6 +11,7 @@ import javax.json.JsonArray;
 import javax.json.JsonReader;
 import javax.ws.rs.client.Client;
 import javax.ws.rs.client.ClientBuilder;
+import javax.ws.rs.client.Entity;
 import javax.ws.rs.client.WebTarget;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
@@ -49,6 +50,9 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
     	
     	//System.out.println(result);
 	}
+	
+	
+	
 
 	public List<UserDTO> ConsumeUserList() {
 		// TODO Auto-generated method stub
@@ -88,6 +92,31 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
     	return LU;
     	
     	//System.out.println(result2);
+	}
+
+
+
+
+	@Override
+	public void CompanyCreate(CompanyDTO c) {
+		// TODO Auto-generated method stub
+		
+		
+		CompanyDTO company = new CompanyDTO();
+		company.setName(c.getName());
+		company.setLogoUrl(c.getLogoUrl());
+		
+		
+		Client client3 = ClientBuilder.newClient();
+		WebTarget web3 = client3.target("http://localhost:2212/api/CompanyCreate");
+		
+		WebTarget hello = web3.path("");
+		
+		Response response = hello.request().post(Entity.entity(c, MediaType.APPLICATION_JSON));
+		
+		String result = response.readEntity(String.class);
+		System.out.println(result);
+		response.close();
 	}
 
 
