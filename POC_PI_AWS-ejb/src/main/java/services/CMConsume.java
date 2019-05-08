@@ -16,6 +16,7 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
 import DTO.CompanyDTO;
+import DTO.UserDTO;
 
 @Stateless
 @LocalBean
@@ -49,18 +50,44 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
     	//System.out.println(result);
 	}
 
-	public void ConsumeUserList() {
+	public List<UserDTO> ConsumeUserList() {
 		// TODO Auto-generated method stub
 		
 
+		List<UserDTO> LU = new ArrayList<UserDTO> ();
+		
 		Client client2 = ClientBuilder.newClient();
 		WebTarget web2 = client2.target("http://localhost:2212/api/UserAPI");
 		
         Response response2 = web2.request().get();
     	
     	String result2 = response2.readEntity(String.class); 
+    	JsonReader jsonReader2 = Json.createReader(new StringReader(result2));
+    	JsonArray object2 =  jsonReader2.readArray();
     	
-    	System.out.println(result2);
+    	for (int i=0;i<object2.size();i++)
+    	{
+    		UserDTO user =new UserDTO();
+    		
+    		/*user.setFirstName(object.getJsonObject(i).getString("FirstName"));
+    		user.setLastName(object.getJsonObject(i).getString("LastName"));*/
+    		user.setCompanyId(object2.getJsonObject(i).getInt("CompanyId"));
+    		/*
+    		user.setEmail(object.getJsonObject(i).getString("Email"));
+    		c.setCompanyId(object.getJsonObject(i).getInt("CompanyId"));
+    		c.setEmail(object.getJsonObject(i).getString("Email"));
+    		c.setFirstName(object.getJsonObject(i).getString("FirstName"));
+    		c.setLastName(object.getJsonObject(i).getString("LastName"));
+    		c.setPassword(object.getJsonObject(i).getString("Password"));*/
+    		
+    		LU.add(user);
+    		
+    		
+    	}
+    	
+    	return LU;
+    	
+    	//System.out.println(result2);
 	}
 
 
