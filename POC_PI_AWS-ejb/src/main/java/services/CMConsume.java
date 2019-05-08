@@ -121,5 +121,21 @@ public class CMConsume implements CMconsumeLocal, CMConsumeRemote{
 
 
 
+
+	@Override
+	public void CompanyDelete(int id) {
+		// TODO Auto-generated method stub
+		
+		Client client = ClientBuilder.newClient();
+		WebTarget target = client.target("http://localhost:2212/api/CompanyDelete/"+id);
+		WebTarget hello =target.path("");
+		Response response =hello.request(MediaType.APPLICATION_JSON_TYPE, MediaType.TEXT_PLAIN_TYPE).delete();
+		response.close();
+		
+		
+	}
+
+
+
 	 
 }

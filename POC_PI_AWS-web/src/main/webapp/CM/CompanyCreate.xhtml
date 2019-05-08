@@ -1,0 +1,35 @@
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+
+ template="Template.xhtml">
+	
+<ui:define name="title"> Create your company</ui:define>
+    <ui:define name="content">
+
+<h:form> 
+<h:panelGrid columns="2">
+
+<h:outputText value="name" />
+<h:inputText value="#{cMBean.nom}" />
+
+<h:outputText value="logo" />
+<h:inputText value="#{cMBean.logo}" />
+
+
+
+
+
+<h:commandButton action="#{cMBean.CreateCompany()}" value="create your company" />
+</h:panelGrid>
+
+ 
+
+ 
+ 
+
+	</h:form>
+	</ui:define>
+
+</ui:composition>

@@ -15,4 +15,8 @@ public interface CMconsumeLocal {
 	List<UserDTO> ConsumeUserList();
 	
 	
+	void CompanyCreate(CompanyDTO c);
+	
+	void CompanyDelete (int id);
+	
 }
