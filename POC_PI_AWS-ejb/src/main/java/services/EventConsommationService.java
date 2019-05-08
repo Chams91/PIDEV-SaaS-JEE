@@ -169,7 +169,7 @@ return lasp;
   		System.out.println("OK");
 
 		Client client = ClientBuilder.newClient();
-		WebTarget target = client.target("http://localhost:2212/api/taskUp?id="+id);
+		WebTarget target = client.target("http://localhost:2212/api/eventUp?id="+id);
 		Response response = target
 		                 .request()
 		                 .put(Entity.entity(event, MediaType.APPLICATION_JSON));

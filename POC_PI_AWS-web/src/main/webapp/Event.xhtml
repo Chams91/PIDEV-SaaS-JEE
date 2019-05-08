@@ -9,7 +9,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 <ui:define name="title"> Gestion des task :</ui:define>
     <ui:define name="content">
 <h:form>
-<h:dataTable value="#{eventConBean.allEvents}" var="cp" id="tab">
+					<h:dataTable class="table table-striped custom-table m-b-0 datatable" value="#{eventConBean.allEvents}" var="cp" id="tab">
+
 		
 		
 			<h:column>
@@ -58,7 +59,9 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 					<h:outputText value="Action" />
 				</f:facet>
 				<h:commandButton action="#{eventConBean.DeleteEvent(cp.eventId)}" value="supprimer" />
-			   <h:commandButton action="#{eventConBean.doUpEvent()}" value="Modifier" />
+		
+			   <h:commandButton action="#{eventConBean.modifier(cp)}" value="Modifier" />
+				
 				
 			
 		
