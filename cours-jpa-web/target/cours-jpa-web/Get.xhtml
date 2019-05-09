@@ -1,0 +1,60 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="Template.xhtml">
+<ui:define name="title"> Gestion des projets :</ui:define>
+    <ui:define name="content">
+<h:form>
+<h:dataTable value="#{projectBean.geeeettttetAllTasks()}" var="project" border="1">
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Name" />
+				</f:facet>
+				<h:outputText value="#{project.name}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="DateBegin" />
+				</f:facet>
+				<h:outputText value="#{project.dateBegin}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="DateEnd" />
+				</f:facet>
+				<h:outputText value="#{project.dateEnd}" />
+			</h:column>
+
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Description" />
+				</f:facet>
+				<h:outputText value="#{project.description}" />
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Etat" />
+				</f:facet>
+				<h:outputText value="#{project.etat}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Action" />
+				</f:facet>
+				<h:commandButton action="#{projectBean.supprimerssss(project.projectId)}"
+					value="supprimer" />
+					<h:commandButton action="#{projectBean.modifier(project)}"
+					value="Modifier" />
+				
+			</h:column>
+		</h:dataTable>
+		
+		
+				</h:form>
+	</ui:define>
+
+</ui:composition>

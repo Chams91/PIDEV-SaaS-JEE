@@ -1,0 +1,7 @@
+tn\esprit\imputation\entity\Mail.class
+tn\esprit\imputation\entity\Project.class
+tn\esprit\imputation\entity\Categorie.class
+tn\esprit\imputation\service\interf\ProjectServiceLocal.class
+tn\esprit\imputation\service\interf\ProjectServiceRemote.class
+tn\esprit\imputation\service\impl\ProjectService.class
+tn\esprit\imputation\entity\Mail$1.class

@@ -1,0 +1,39 @@
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+xmlns:f="http://java.sun.com/jsf/core"
+xmlns:h="http://java.sun.com/jsf/html"
+xmlns:ui="http://java.sun.com/jsf/facelets"
+template="Template.xhtml">
+<ui:define name="title"> Gestion des projets :</ui:define>
+    <ui:define name="content">
+<h:form>
+     	<h:panelGrid columns="2">
+
+			<h:outputText value="Name" />
+			<h:inputText value="#{projectBean.name}" />
+			<h:outputText value="DateBegin" />
+			<h:inputText value="#{projectBean.dateBegin}" />
+			<h:outputText value="DateEnd" />
+			<h:inputText value="#{projectBean.dateEnd}" />
+			<h:outputText value="TotalResources" />
+			<h:inputText value="#{projectBean.totalNbrRessources}" />
+			<h:outputText value="Description" />
+			<h:inputText value="#{projectBean.description}" />
+			<h:outputText value="Etat" />
+			<h:inputText value="#{projectBean.etat}" />
+
+			
+			<h:commandButton action="#{projectBean.addProject()}"
+				value="Ajouter projet" />
+				
+			<h:commandButton action="#{projectBean.mettreAjourPro()}"
+				value="MettreAjour" />
+		</h:panelGrid>
+		</h:form>
+	</ui:define>
+
+</ui:composition>
+
+
+    
+
